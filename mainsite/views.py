@@ -8,8 +8,9 @@ from .models import Post
 def homepage(requeust):
 	posts = Post.objects.all()
 	post_list  = list()
+
 	for count, post in enumerate(posts):
-		post_list.append("No.{}:".format(str(count) + str(post) + "<br>"))
+		post_list.append("No.{} :".format(str(count) +' ' + str(post.title) + "<br>"))
 		post_list.append("<small>" + str(post.body) + "</small><br><br>")
 		
 	return HttpResponse(post_list)
